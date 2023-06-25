@@ -6,7 +6,7 @@
 # @Email: sauravkumarbehera@gmail.com
 # @Create At: 2023-06-25 10:58:29
 # @Last Modified By: imSauravB
-# @Last Modified At: 2023-06-25 11:26:04
+# @Last Modified At: 2023-06-25 11:44:05
 # @Description: This is description.
 
 #!/usr/bin/env python3
@@ -30,8 +30,8 @@ FACE_ANALYSER = None
 FACE_SWAPPER = None
 FACE_ENHANCER = None
 
-targetDirPath = "C:/Users/saurav/Desktop/avatar/"
-sourceImage = "C:/Users/saurav/workspace/test/source/photos/5.5.jpg"
+targetDirPath = "C:/Users/saurav/Desktop/targetDir/"
+sourceImage = "C:/Users/saurav//Desktop/source.jpg"
 
 def getFaceEnhancer():
     global FACE_ENHANCER
