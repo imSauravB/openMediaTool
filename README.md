@@ -11,3 +11,9 @@ Following operations are supported
 8. Change the video fps (Reduce the video size in case of lower fps and insert more black frames in case of higher fps)
 9. Enhance Image with faces
 10. Swap faces in image with enhancement
+
+
+## IMAGE SWAP FACE DEMO
+
+![demo1-jpg](target.jpg)
+![demo2-jpg](results.jpg)
