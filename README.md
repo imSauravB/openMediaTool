@@ -1,4 +1,4 @@
-# openVideoTool
+# openMediaTool
 
 Following operations are supported
 1. Convert video to required format
