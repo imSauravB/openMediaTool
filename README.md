@@ -10,7 +10,7 @@ Following operations are supported
 7. Extract all frames from the video
 8. Change the video fps (Reduce the video size in case of lower fps and insert more black frames in case of higher fps)
 9. Enhance Image with faces
-10. Swap faces in image with enhancement
+10. Swap faces in image with enhancement (cd coreLib,  python .\imageSwapAndEnhance.py (in the file change the image directory location) )
 
 
 ## IMAGE SWAP FACE DEMO
