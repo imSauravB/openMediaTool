@@ -6,7 +6,7 @@
 # @Email: sauravkumarbehera@gmail.com
 # @Create At: 2023-06-25 10:58:29
 # @Last Modified By: imSauravB
-# @Last Modified At: 2023-06-25 11:44:05
+# @Last Modified At: 2023-06-25 14:24:58
 # @Description: This is description.
 
 #!/usr/bin/env python3
@@ -31,12 +31,12 @@ FACE_SWAPPER = None
 FACE_ENHANCER = None
 
 targetDirPath = "C:/Users/saurav/Desktop/targetDir/"
-sourceImage = "C:/Users/saurav//Desktop/source.jpg"
+sourceImage = "C:/Users/saurav/Desktop/source.jpg"
 
 def getFaceEnhancer():
     global FACE_ENHANCER
     if FACE_ENHANCER is None:
-        model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../GFPGANv1.4.pth')
+        model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../faceEnhanceModel.pth')
         # todo: set models path https://github.com/TencentARC/GFPGAN/issues/399
         FACE_ENHANCER = gfpgan.GFPGANer(model_path=model_path, upscale=1) # type: ignore[attr-defined]
     return FACE_ENHANCER
