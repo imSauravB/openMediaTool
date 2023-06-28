@@ -1,13 +1,14 @@
 # Copyright (c) 2023 imSauravB
 #
 # -*- coding:utf-8 -*-
-# @Script: faceEnhance.py
+# @Script: imageEnhance.py
 # @Author: imSauravB
-# @Email: sauravkumarbehera@gmail.com
-# @Create At: 2023-06-28 23:20:56
+# @Email: sauravdakhinray@gmail.com
+# @Create At: 2023-06-29 01:36:28
 # @Last Modified By: imSauravB
-# @Last Modified At: 2023-06-28 23:33:24
+# @Last Modified At: 2023-06-29 02:03:12
 # @Description: This is description.
+
 
 
 import os
@@ -15,18 +16,30 @@ import cv2
 from os import listdir
 from os.path import isfile, join
 import gfpgan
+from realesrgan import RealESRGANer
+from realesrgan.archs.srvgg_arch import SRVGGNetCompact
 
+SCALE = 4
 FACE_ENHANCER = None
 
 
-targetDirPath = "C:/Users/saurav/Desktop/avatar/"
+targetDirPath = "C:/Users/saurav/Desktop/avatar/picsV7/"
+
+upsampler = RealESRGANer(
+    scale = SCALE,
+    model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../imageUpscaleModel-x4v3.pth'),
+    dni_weight = None,
+    model = SRVGGNetCompact(num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=32, upscale=4, act_type='prelu'),
+    tile = 0,
+    tile_pad = 10,
+    pre_pad = 0)
 
 def getFaceEnhancer():
     global FACE_ENHANCER
     if FACE_ENHANCER is None:
         model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../faceEnhanceModel.pth')
         # todo: set models path https://github.com/TencentARC/GFPGAN/issues/399
-        FACE_ENHANCER = gfpgan.GFPGANer(model_path=model_path, upscale=1) # type: ignore[attr-defined]
+        FACE_ENHANCER = gfpgan.GFPGANer(model_path=model_path, upscale=SCALE, arch='clean', channel_multiplier=2, bg_upsampler=upsampler) # type: ignore[attr-defined]
     return FACE_ENHANCER
 
 def enhanceFace(tempFrame):
