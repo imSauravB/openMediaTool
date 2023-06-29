@@ -6,7 +6,7 @@
 # @Email: sauravdakhinray@gmail.com
 # @Create At: 2023-06-29 01:36:28
 # @Last Modified By: imSauravB
-# @Last Modified At: 2023-06-29 02:03:12
+# @Last Modified At: 2023-06-29 11:30:42
 # @Description: This is description.
 
 
@@ -16,6 +16,7 @@ import cv2
 from os import listdir
 from os.path import isfile, join
 import gfpgan
+from basicsr.archs.rrdbnet_arch import RRDBNet
 from realesrgan import RealESRGANer
 from realesrgan.archs.srvgg_arch import SRVGGNetCompact
 
@@ -23,13 +24,14 @@ SCALE = 4
 FACE_ENHANCER = None
 
 
-targetDirPath = "C:/Users/saurav/Desktop/avatar/picsV7/"
+targetDirPath = "C:/Users/saurav/Desktop/avatar/"
 
 upsampler = RealESRGANer(
     scale = SCALE,
-    model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../imageUpscaleModel-x4v3.pth'),
+    model_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), '../imageUpscaleModel-x4plus.pth'),
     dni_weight = None,
-    model = SRVGGNetCompact(num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=32, upscale=4, act_type='prelu'),
+    #model = SRVGGNetCompact(num_in_ch=3, num_out_ch=3, num_feat=64, num_conv=32, upscale=4, act_type='prelu'),
+    model = RRDBNet(num_in_ch=3, num_out_ch=3, num_feat=64, num_block=23, num_grow_ch=32, scale=4),
     tile = 0,
     tile_pad = 10,
     pre_pad = 0)
