@@ -1,5 +1,14 @@
 # openMediaTool
 
+## image Face Swap Demo
+![demo1-jpg](target.jpg)
+![demo2-jpg](results.jpg)
+
+## Image Enhance Demo
+![demo3-jpg](demo-1.jpg)
+![demo4-jpg](demo-1-enhanced.jpg)
+
+
 Following operations are supported
 1. Convert video to required format
 2. Resize the video file
@@ -13,7 +22,3 @@ Following operations are supported
 10. Swap faces in image with enhancement (cd coreLib,  python .\imageSwapAndEnhance.py (in the file change the image directory location) )
 
 
-## IMAGE SWAP FACE DEMO
-
-![demo1-jpg](target.jpg)
-![demo2-jpg](results.jpg)
